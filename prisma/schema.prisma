@@ -1,0 +1,85 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+datasource db {
+  provider = "mongodb"
+  url      = env("DATABASE_URL")
+}
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+model Patient {
+  id           String        @id @default(auto()) @map("_id") @db.ObjectId
+  email        String        @unique
+  token        String        @unique
+  name         String?
+  phone        String?
+  ip           String?
+  deviceInfo   String?
+  deviceId     String?
+  appointments Appointment[]
+}
+
+model Appointment {
+  id          String    @id @default(auto()) @map("_id") @db.ObjectId
+  slug        String    @unique
+  title       String
+  category    String
+  description String?
+  sessions    Session[]
+  patient     Patient   @relation(fields: [patientId], references: [id])
+  patientId   String    @db.ObjectId
+}
+
+// Comments contain a comment string and connect back to the post.
+// postId must have @db.ObjectId to match up with Post's id type
+model Session {
+  id            String      @id @default(auto()) @map("_id") @db.ObjectId
+  appointment   Appointment @relation(fields: [appointmentId], references: [id])
+  appointmentId String      @db.ObjectId
+  description   String
+  date          DateTime
+  time          DateTime
+}
+
+// model Post {
+//   id String @id @default(auto()) @map("_id") @db.ObjectId
+
+//   slug String @unique
+
+//   title String
+
+//   body String
+
+//   comments Comment[]
+
+//   author User @relation(fields: [authorId], references: [id])
+
+//   authorId String @db.ObjectId
+// }
+
+// // Comments contain a comment string and connect back to the post.
+
+// // postId must have @db.ObjectId to match up with Post's id type
+
+// model Comment {
+//   id String @id @default(auto()) @map("_id") @db.ObjectId
+
+//   post Post @relation(fields: [postId], references: [id])
+
+//   postId String @db.ObjectId
+
+//   comment String
+// }
+
+// model User {
+//   id String @id @default(auto()) @map("_id") @db.ObjectId
+
+//   email String @unique
+
+//   name String?
+
+//   posts Post[]
+// }
