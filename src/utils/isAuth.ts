@@ -1,6 +1,6 @@
 import { Request, Response, NextFunction } from 'express';
 
-import { verify } from 'jsonwebtoken';
+import { verify, TokenExpiredError, NotBeforeError, JsonWebTokenError } from 'jsonwebtoken';
 
 // const catchError = (err: TokenExpiredError, res: Response) => {
 //   if (err instanceof TokenExpiredError) {
@@ -11,7 +11,7 @@ import { verify } from 'jsonwebtoken';
 // };
 
 const verifyToken = (req: Request, res: Response, next: NextFunction) => {
-  const token = req.body.token || req.query.token || req.headers['x-access-token'];
+  const token = req.headers['x-access-token']?.toString();
 
   if (!token) {
     return res.status(403).json({
@@ -20,15 +20,25 @@ const verifyToken = (req: Request, res: Response, next: NextFunction) => {
     });
   }
   try {
-    const decoded = verify(token, process.env.TOKEN_KEY || '');
+    const decoded = verify(token, process.env.TOKEN_KEY || '', (err: any, decoded: any) => {
+      if (err instanceof TokenExpiredError) {
+        return res.status(401).send({ success: false, message: 'Unauthorized! Access Token was expired!' });
+      }
+      if (err instanceof NotBeforeError) {
+        return res.status(401).send({ success: false, message: 'jwt not active' });
+      }
+      if (err instanceof JsonWebTokenError) {
+        return res.status(401).send({ success: false, message: 'jwt malformed' });
+      }
+    });
     req.body.user = decoded;
+    return next();
   } catch (err) {
     return res.status(401).json({
       success: false,
       message: 'Invalid Token',
     });
   }
-  return next();
 };
 
 export default verifyToken;

@@ -1,11 +1,12 @@
 import { Request, Response, Router } from 'express';
 
 import bcrypt from 'bcryptjs';
-import jwt from 'jsonwebtoken';
+import { sign, decode} from 'jsonwebtoken';
 
 import prisma from '../client/client';
 import verifyToken from '../utils/isAuth';
 import isPhoneNum from '../utils/isPhone';
+import MyJwtPayload from 'src/interfaces/MyJwtPayload';
 
 const router = Router();
 
@@ -73,7 +74,7 @@ router.post('/signup', async (req: Request, res: Response) => {
     });
 
     // Create token
-    const token = jwt.sign({ user_id: user.id, email }, process.env.TOKEN_KEY || '', {
+    const token = sign({ user_id: user.id, email }, process.env.TOKEN_KEY || '', {
       expiresIn: '2h',
     });
     // save user token
@@ -112,7 +113,7 @@ router.post('/login', async (req: Request, res: Response) => {
 
     if (user && (await bcrypt.compare(password, user.token))) {
       // Create token
-      const token = jwt.sign({ user_id: user.id, email }, process.env.TOKEN_KEY || '', {
+      const token = sign({ user_id: user.id, email }, process.env.TOKEN_KEY || '', {
         expiresIn: '2h',
       });
 
@@ -153,10 +154,27 @@ router.post('/validate', verifyToken, async (req: Request, res: Response) => {
 });
 
 router.get('/profile', verifyToken, async (req: Request, res: Response) => {
-  // res.send('Profile');
   try {
     // Get user input
-    const { id } = req.body;
+    const token = req.headers['x-access-token']?.toString();
+    if (!token) {
+      res.status(400).json({
+        success: false,
+        message: 'Bad request!!',
+      });
+      return;
+    }
+    const decoded = decode(token, { complete: true });
+    if (!decoded?.payload) {
+      res.status(400).json({
+        success: false,
+        message: 'Bad request!!',
+      });
+      return;
+    }
+    var payload = decoded?.payload as MyJwtPayload;
+
+    const id = payload.user_id;
 
     if (!id) {
       res.status(400).json({
