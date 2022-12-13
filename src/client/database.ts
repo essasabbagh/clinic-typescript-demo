@@ -7,31 +7,14 @@ const connect = async function connect() {
     // Connect the client
     await prisma.$connect();
 
-    // await prisma.patient.create({
-    //   data: {
-    //     name: 'Isa',
-    //     email: 'isa@sabbagh.com',
-    //     token: '',
-    //     phone: '',
-    //     ip: '',
-    //     appointments: {
-    //       create: {
-    //         title: 'My first post',
-    //         slug: 'my-first-post',
-    //         category: 'teeth',
-    //         description: 'Lots of really interesting stuff',
-    //       },
-    //     },
-    //   },
-    // });
+    // const allUsers = await prisma.patient.findMany({});
 
-    const allUsers = await prisma.patient.findMany({});
-
-    console.dir(allUsers, { depth: null });
+    // console.dir(allUsers, { depth: null });
+    console.info('Database is Ready');
   } catch (err) {
     console.error(err);
     await prisma.$disconnect();
     process.exit(1);
   }
-}
-export default connect
+};
+export default connect;

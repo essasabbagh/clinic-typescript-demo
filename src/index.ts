@@ -1,7 +1,7 @@
 // http://localhost:5000/
 
 import express from 'express';
-// import cors, { CorsRequest } from 'cors';
+import cors, { CorsRequest } from 'cors';
 // import admin from 'firebase-admin';
 //used to parse the form data that you pass in the request
 import { json, urlencoded } from 'body-parser';
@@ -17,7 +17,19 @@ const PORT = process.env.PORT || 3000;
 const app = express();
 
 // Middleware
-// app.use(cors<CorsRequest>());
+
+//options for cors midddleware
+const options: cors.CorsOptions = {
+  allowedHeaders: ['Origin', 'X-Requested-With', 'Content-Type', 'Accept', 'X-Access-Token'],
+  credentials: true,
+  methods: 'GET,HEAD,OPTIONS,PUT,PATCH,POST,DELETE',
+  origin: 'API_URL',
+  preflightContinue: false,
+};
+
+//use cors middleware
+app.use(cors<CorsRequest>(options));
+
 app.use(json());
 app.use(
   urlencoded({
