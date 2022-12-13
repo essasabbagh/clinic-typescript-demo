@@ -13,6 +13,7 @@ import home from './routes/home';
 import appointments from './routes/appointments';
 
 const PORT = process.env.PORT || 3000;
+process.env.NODE_ENV = 'production';
 
 const app = express();
 
