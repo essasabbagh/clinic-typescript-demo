@@ -17,20 +17,10 @@ export default class AuthService {
       const { first_name, last_name, email, password, confirmPassword, phone } = req.body;
 
       // Validate user input
-      if (!(email && password && first_name && last_name)) {
-        res.status(400).json({
-          success: false,
-          message: 'All input is required',
-        });
-      }
+      if (!(email && password && first_name && last_name)) throw 'All input is required';
 
       // Confirm Password
-      if (password !== confirmPassword) {
-        res.status(400).json({
-          success: false,
-          message: 'Password must match',
-        });
-      }
+      if (password !== confirmPassword) throw 'Password must match';
 
       // check if user already exist
       // Validate if user exist in our database
@@ -48,12 +38,7 @@ export default class AuthService {
         });
       }
 
-      if (!isPhoneNum(phone)) {
-        return res.status(400).send({
-          success: false,
-          message: 'Phone Number should be 10 Number',
-        });
-      }
+      if (!isPhoneNum(phone)) throw 'Phone Number should be 10 Number';
 
       // Encrypt user password
       const encryptedPassword = await bcrypt.hash(password, 10);
@@ -65,7 +50,8 @@ export default class AuthService {
       // Create user in our database
       const user = await prisma.patient.create({
         data: {
-          name: first_name + ' ' + last_name,
+          firstName: first_name,
+          lastName: last_name,
           email: userEmail,
           token: encryptedPassword,
           phone: phone,
@@ -96,7 +82,10 @@ export default class AuthService {
       });
     } catch (err) {
       console.log(err);
-      return;
+      return res.status(400).send({
+        success: false,
+        message: err,
+      });
     }
     // Our register logic ends here
   }
@@ -108,9 +97,7 @@ export default class AuthService {
       const { email, password } = req.body;
 
       // Validate user input
-      if (!(email && password)) {
-        res.status(400).send('All input is required');
-      }
+      if (!(email && password)) throw 'All input is required';
 
       // Validate if user exist in our database
       const user = await prisma.patient.findUnique({
@@ -119,32 +106,27 @@ export default class AuthService {
         },
       });
 
-      if (user && (await bcrypt.compare(password, user.token))) {
-        // Create token
-        const token = sign({ user_id: user.id, email }, process.env.TOKEN_KEY || '', {
-          expiresIn: '2h',
-        });
+      if (!(user && (await bcrypt.compare(password, user.token)))) throw 'Invalid Credentials';
+      // Create token
+      const token = sign({ user_id: user.id, email }, process.env.TOKEN_KEY || '', {
+        expiresIn: '2h',
+      });
 
-        // save user token
-        user.token = token;
+      // save user token
+      user.token = token;
 
-        // user
-        res.status(200).json({
-          success: true,
-          message: 'User Logged Successfully',
-          data: user,
-        });
-      } else {
-        res.status(400).json({
-          success: false,
-          message: 'Invalid Credentials',
-        });
-        // stop further execution in this callback
-        return;
-      }
+      // user
+      res.status(200).json({
+        success: true,
+        message: 'User Logged Successfully',
+        data: user,
+      });
     } catch (err) {
       console.log(err);
-      return;
+      res.status(400).json({
+        success: false,
+        message: err,
+      });
     }
     // Our register logic ends here
   }
@@ -157,7 +139,10 @@ export default class AuthService {
       });
     } catch (err) {
       console.log(err);
-      return;
+      return res.status(400).json({
+        success: false,
+        message: err,
+      });
     }
   }
 
@@ -165,36 +150,17 @@ export default class AuthService {
     try {
       // Get user input
       const token = req.headers['x-access-token']?.toString();
-      if (!token) {
-        res.status(400).json({
-          success: false,
-          message: 'Bad request!!',
-        });
-        return;
-      }
+      if (!token) throw 'Bad request!!';
+
       const decoded = decode(token, { complete: true });
-      if (!decoded?.payload) {
-        return res.status(400).json({
-          success: false,
-          message: 'Bad request!!',
-        });
-      }
+      if (!decoded?.payload) throw 'Bad request!!';
+
       var payload = decoded?.payload as MyJwtPayload;
 
       const id = payload.user_id;
 
-      if (!id) {
-        return res.status(400).json({
-          success: false,
-          message: 'Bad request!!',
-        });
-      }
-      if (id.length != 24) {
-        return res.status(400).json({
-          success: false,
-          message: 'Wrong User Id!!',
-        });
-      }
+      if (!id) throw 'Bad request!!';
+      if (id.length != 24) throw 'Wrong User Id!!';
 
       // Validate if user exist in our database
       const user = await prisma.patient.findUnique({
@@ -203,20 +169,15 @@ export default class AuthService {
         },
       });
 
-      if (!user) {
-        return res.status(404).json({
-          success: false,
-          message: 'User Not Found!!',
-        });
-        // stop further execution in this callback
-      } else {
-        // user
-        return res.status(200).json({
-          name: user.name,
-          email: user.email,
-          phone: user.phone,
-        });
-      }
+      if (!user) throw 'User Not Found!!';
+      // stop further execution in this callback
+      // user
+      return res.status(200).json({
+        firstName: user.firstName,
+        lastName: user.lastName,
+        email: user.email,
+        phone: user.phone,
+      });
     } catch (err) {
       console.log(err);
       return res.status(400).json({

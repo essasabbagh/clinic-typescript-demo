@@ -1,5 +1,6 @@
 // This is your Prisma schema file,
 // learn more about it in the docs: https://pris.ly/d/prisma-schema
+// prisma generate
 
 datasource db {
   provider = "mongodb"
@@ -14,7 +15,8 @@ model Patient {
   id           String        @id @default(auto()) @map("_id") @db.ObjectId
   email        String        @unique
   token        String        @unique
-  name         String?
+  firstName    String?
+  lastName     String?
   phone        String?
   ip           String?
   deviceInfo   String?

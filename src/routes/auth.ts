@@ -12,6 +12,6 @@ router.post('/login', AuthService.login);
 
 router.post('/validate', AuthService.verifyToken, AuthService.validate);
 
-router.get('/profile', AuthService.verifyToken, AuthService.profile);
+router.get('/profile', AuthService.profile);
 
 export default router;

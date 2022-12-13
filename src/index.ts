@@ -1,13 +1,12 @@
 // http://localhost:5000/
 
 import express from 'express';
+// import cors, { CorsRequest } from 'cors';
 // import admin from 'firebase-admin';
 //used to parse the form data that you pass in the request
 import { json, urlencoded } from 'body-parser';
 import connectDb from './client/database';
-import * as dotenv from 'dotenv';
 // see https://github.com/motdotla/dotenv#how-do-i-use-dotenv-with-import
-dotenv.config();
 
 import auth from './routes/auth';
 import home from './routes/home';
@@ -18,6 +17,7 @@ const PORT = process.env.PORT || 3000;
 const app = express();
 
 // Middleware
+// app.use(cors<CorsRequest>());
 app.use(json());
 app.use(
   urlencoded({
