@@ -4,7 +4,7 @@ import express from 'express';
 // import admin from 'firebase-admin';
 //used to parse the form data that you pass in the request
 import { json, urlencoded } from 'body-parser';
-import connect from './client/database';
+import connectDb from './client/database';
 import * as dotenv from 'dotenv';
 // see https://github.com/motdotla/dotenv#how-do-i-use-dotenv-with-import
 dotenv.config();
@@ -33,7 +33,7 @@ app.use('/', home, auth);
 app.use('/appointments', appointments);
 
 // Connect Database
-connect();
+connectDb();
 
 app.listen(PORT, () => {
   console.log('listening on port ' + PORT);
