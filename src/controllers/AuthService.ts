@@ -10,9 +10,10 @@ import isPhoneNum from '../utils/isPhone';
 import MyJwtPayload from '../interfaces/MyJwtPayload';
 
 import { AppError } from '../errors';
+import auth from '../firebase';
 
 export default class AuthService {
-  static async register(req: Request, res: Response) {
+  static async register(req: Request, res: Response, next: NextFunction) {
     // Our register logic starts here
     try {
       // Get user input
@@ -77,24 +78,13 @@ export default class AuthService {
         message: 'User Created Successfully',
         data: user,
       });
-    } catch (err) {
-      // console.log(err);
-      if (err instanceof AppError) {
-        return res.status(err.status).send({
-          success: false,
-          message: err.message,
-        });
-      } else {
-        return res.status(400).send({
-          success: false,
-          message: err,
-        });
-      }
+    } catch (e) {
+      next(e);
     }
     // Our register logic ends here
   }
 
-  static async login(req: Request, res: Response) {
+  static async login(req: Request, res: Response, next: NextFunction) {
     // Our login logic starts here
     try {
       // Get user input
@@ -126,39 +116,24 @@ export default class AuthService {
         message: 'User Logged Successfully',
         data: user,
       });
-    } catch (err) {
-      // console.log(err);
-      if (err instanceof AppError) {
-        return res.status(err.status).send({
-          success: false,
-          message: err.message,
-        });
-      } else {
-        return res.status(400).send({
-          success: false,
-          message: err,
-        });
-      }
+    } catch (e) {
+      next(e);
     }
     // Our register logic ends here
   }
 
-  static async validate(req: Request, res: Response) {
+  static async validate(req: Request, res: Response, next: NextFunction) {
     try {
       res.status(200).json({
         success: true,
         message: 'Token verified',
       });
-    } catch (err) {
-      // console.log(err);
-      return res.status(400).json({
-        success: false,
-        message: err,
-      });
+    } catch (e) {
+      next(e);
     }
   }
 
-  static async profile(req: Request, res: Response) {
+  static async profile(req: Request, res: Response, next: NextFunction) {
     try {
       // Get user input
       const token = req.headers['x-access-token']?.toString();
@@ -191,19 +166,8 @@ export default class AuthService {
         email: user.email,
         phone: user.phone,
       });
-    } catch (err) {
-      console.log(err);
-      if (err instanceof AppError) {
-        return res.status(err.status).send({
-          success: false,
-          message: err.message,
-        });
-      } else {
-        return res.status(400).send({
-          success: false,
-          message: err,
-        });
-      }
+    } catch (e) {
+      next(e);
     }
   }
 
@@ -221,18 +185,23 @@ export default class AuthService {
       req.body.user = decoded;
 
       return next();
-    } catch (err) {
-      if (err instanceof AppError) {
-        return res.status(err.status).send({
-          success: false,
-          message: err.message,
-        });
-      } else {
-        return res.status(401).send({
-          success: false,
-          message: err,
-        });
+    } catch (e) {
+      next(e);
+    }
+  }
+
+  static async verifyIdToken(req: Request, res: Response, next: NextFunction) {
+    const token = req?.headers?.authorization?.split(' ')[1];
+
+    try {
+      if (!token) throw new AppError(401, 'Token is required');
+      const decodeValue = await auth.verifyIdToken(token);
+      if (decodeValue) {
+        req.body.user = decodeValue;
+        return next();
       }
+    } catch (e) {
+      next(e);
     }
   }
 }

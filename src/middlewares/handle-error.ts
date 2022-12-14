@@ -3,9 +3,14 @@ import { AppError } from '../errors';
 
 export const errorHandler = (err: Error, req: Request, res: Response, next: NextFunction) => {
   if (err instanceof AppError) {
-    return res.status(err.status).json({ errors: err.message });
+    return res.status(err.status).send({
+      success: false,
+      message: err.message,
+    });
+  } else {
+    return res.status(400).send({
+      success: false,
+      message: 'Something went wrong ' +  err,
+    });
   }
-  res.status(400).send({
-    errors: [{ message: 'Something went wrong' }],
-  });
 };

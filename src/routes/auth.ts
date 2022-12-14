@@ -7,7 +7,7 @@ const router = Router();
 
 router.use(errorHandler);
 
-router.post('/social', AuthService.register);
+router.post('/social', AuthService.verifyIdToken);
 
 router.post('/signup', AuthService.register);
 
