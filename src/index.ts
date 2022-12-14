@@ -1,5 +1,3 @@
-// http://localhost:5000/
-
 import express from 'express';
 
 //used to parse the form data that you pass in the request
@@ -44,3 +42,4 @@ app.use(errorHandler);
 app.listen(PORT, () => {
   console.log('listening on port ' + PORT);
 });
+// http://localhost:5000/
