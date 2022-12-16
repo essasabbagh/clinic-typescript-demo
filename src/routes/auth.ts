@@ -1,20 +1,24 @@
-import { Router } from 'express';
+// import { Router } from 'express';
+import { Application } from 'express';
+
 import { errorHandler } from '../middlewares/handle-error';
 
 import AuthService from '../controllers/AuthService';
 
-const router = Router();
+export class Auth {
+  public routes(app: Application): void {
+    //received the express instance from app.ts file
 
-router.use(errorHandler);
+    app.use(errorHandler);
 
-router.post('/social', AuthService.verifyIdToken);
+    app.post('/social', AuthService.verifyIdToken);
 
-router.post('/signup', AuthService.register);
+    app.post('/signup', AuthService.register);
 
-router.post('/login', AuthService.login);
+    app.post('/login', AuthService.login);
 
-router.post('/validate', AuthService.verifyToken, AuthService.validate);
+    app.post('/validate', AuthService.verifyToken, AuthService.validate);
 
-router.get('/profile', AuthService.verifyToken, AuthService.profile);
-
-export default router;
+    app.get('/profile', AuthService.verifyToken, AuthService.profile);
+  }
+}

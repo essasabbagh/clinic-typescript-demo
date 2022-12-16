@@ -1,13 +1,23 @@
-import { Request, Response, Router } from 'express';
+import { Request, Response, NextFunction, Application } from 'express';
 
-const router = Router();
+export class Home {
+  public routes(app: Application): void {
+    //received the express instance from app.ts file
 
-router.get('/', (req: Request, res: Response) => {
-  res.send('Hello World');
-});
+    app.get('/', (req: Request, res: Response, next: NextFunction) => {
+      try {
+        // res.send('Hello World');
+        throw 'Hello World Error';
+      } catch (error) {
+        next(error);
+      }
+    });
 
-router.get('/home', (req: Request, res: Response) => {
-  res.send('Hello Home router Api');
-});
-
-export default router;
+    app.get('/home', (req: Request, res: Response) => {
+      res.json({
+        success: true,
+        message: 'Hello Home router Api',
+      });
+    });
+  }
+}

@@ -1,7 +1,7 @@
 const isPhoneNum = (inputtxt: String): Boolean => {
   var phoneNoRegex = /^\d{10}$/;
 
-  return inputtxt.match(phoneNoRegex) ? true : false;
+  return Boolean(inputtxt.match(phoneNoRegex));
 };
 
 export default isPhoneNum;

@@ -1,16 +1,18 @@
-import { Request, Response, NextFunction, Router } from 'express';
+import { Request, Response, Application } from 'express';
 
 import appointments = require('../db.json'); //load our local database file
 
-const router = Router();
+export class Appointments {
+  public routes(app: Application): void {
+    //received the express instance from app.ts file
 
-router.route('/').get((req: Request, res: Response, next: NextFunction) => {
-  res.status(200).send(appointments);
-});
+    app.route('/appointments').get((req: Request, res: Response) => {
+      res.status(200).json(appointments);
+    });
 
-router.route('/:id').get((req: Request, res: Response) => {
-  let id: number = +req.params.id;
-  res.status(200).send(appointments[id]);
-});
-
-export default router;
+    app.route('/appointments/:id').get((req: Request, res: Response) => {
+      let id: number = +req.params.id;
+      res.status(200).json(appointments[id]);
+    });
+  }
+}

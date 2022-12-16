@@ -16,7 +16,7 @@
 // }
 
 export class AppError extends Error {
-  status = 400;
+  status: number = 400;
 
   constructor(status: number, message: string) {
     super(message);

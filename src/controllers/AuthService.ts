@@ -7,7 +7,7 @@ import { sign, decode } from 'jsonwebtoken';
 
 import prisma from '../client/client';
 import isPhoneNum from '../utils/isPhone';
-import MyJwtPayload from '../interfaces/MyJwtPayload';
+import { MyJwtPayload } from '../interfaces/MyJwtPayload';
 
 import { AppError } from '../errors';
 import auth from '../firebase';
@@ -25,6 +25,8 @@ export default class AuthService {
       // Confirm Password
       if (password !== confirmPassword) throw new AppError(400, 'Password must match');
 
+      if (!isPhoneNum(phone)) throw new AppError(400, 'Phone Number should be 10 Number');
+
       // check if user already exist
       // Validate if user exist in our database
       const oldUser = await prisma.patient.findUnique({
@@ -35,8 +37,6 @@ export default class AuthService {
       // https://www.prisma.io/docs/reference/api-reference/prisma-client-reference#examples-4
 
       if (oldUser) throw new AppError(409, 'User Already Exist. Please Login');
-
-      if (!isPhoneNum(phone)) throw new AppError(400, 'Phone Number should be 10 Number');
 
       // Encrypt user password
       const encryptedPassword = await bcrypt.hash(password, 10);
@@ -173,7 +173,8 @@ export default class AuthService {
 
   static async verifyToken(req: Request, res: Response, next: NextFunction) {
     try {
-      const token = req.headers['x-access-token']?.toString();
+      // const token = req.headers['x-access-token']?.toString();
+      const token = req.body.token || req.query.token || req.headers['x-access-token'];
 
       if (!token) throw new AppError(403, 'A token is required for authentication');
 
