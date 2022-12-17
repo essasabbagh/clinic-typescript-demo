@@ -1,11 +1,19 @@
-import { initializeApp, cert, ServiceAccount } from 'firebase-admin/app';
+import { App, initializeApp, cert, ServiceAccount } from 'firebase-admin/app';
 import { getAuth } from 'firebase-admin/auth';
 
 import serviceAccountKey from './serviceAccountKey.json';
 
-const app = initializeApp({
-  credential: cert(serviceAccountKey as ServiceAccount),
-});
+class FireBaseAdmin {
+  public app: App;
+  public auth;
 
-const auth = getAuth(app);
-export default auth;
+  constructor() {
+    this.app = initializeApp({
+      credential: cert(serviceAccountKey as ServiceAccount),
+    }); //run the express instance and store in app
+
+    this.auth = getAuth(this.app);
+  }
+}
+
+export default new FireBaseAdmin().auth;

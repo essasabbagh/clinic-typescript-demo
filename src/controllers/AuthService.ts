@@ -10,7 +10,7 @@ import isPhoneNum from '../utils/isPhone';
 import { MyJwtPayload } from '../interfaces/MyJwtPayload';
 
 import { AppError } from '../errors';
-import auth from '../firebase';
+import firebaseAuth from '../firebase';
 
 export default class AuthService {
   static async register(req: Request, res: Response, next: NextFunction) {
@@ -121,6 +121,64 @@ export default class AuthService {
     }
     // Our register logic ends here
   }
+  static async social(req: Request, res: Response, next: NextFunction) {
+    // Our login logic starts here
+    try {
+      // Get user input
+      const { first_name, last_name, email, phone } = req.body;
+
+      // Validate if user exist in our database
+      const user = await prisma.patient.findUnique({
+        where: {
+          email: email,
+        },
+      });
+      if (!user) {
+        // Get firebase token
+        const token = req?.headers?.authorization?.split(' ')[1] ?? '';
+
+        var ip = req.headers['x-forwarded-for'] || req.socket.remoteAddress;
+
+        // Create user in our database
+        const user = await prisma.patient.create({
+          data: {
+            firstName: first_name,
+            lastName: last_name,
+            email: email,
+            token: token,
+            phone: phone,
+            ip: ip?.toString(),
+            appointments: {
+              create: {
+                title: 'My first post',
+                slug: 'my-first-post',
+                category: 'teeth',
+                description: 'Lots of really interesting stuff',
+              },
+            },
+          },
+        });
+      }
+
+      // Create token
+      const token = sign({ user_id: user!.id, email }, process.env.TOKEN_KEY || '', {
+        expiresIn: '2h',
+      });
+
+      // save user token
+      user!.token = token;
+
+      // user
+      res.status(200).json({
+        success: true,
+        message: 'User Logged Successfully',
+        data: user,
+      });
+    } catch (e) {
+      next(e);
+    }
+    // Our register logic ends here
+  }
 
   static async validate(req: Request, res: Response, next: NextFunction) {
     try {
@@ -196,7 +254,7 @@ export default class AuthService {
 
     try {
       if (!token) throw new AppError(401, 'Token is required');
-      const decodeValue = await auth.verifyIdToken(token);
+      const decodeValue = await firebaseAuth.verifyIdToken(token);
       if (decodeValue) {
         req.body.user = decodeValue;
         return next();

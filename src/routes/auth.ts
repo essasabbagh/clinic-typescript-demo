@@ -11,7 +11,7 @@ export class Auth {
 
     app.use(errorHandler);
 
-    app.post('/social', AuthService.verifyIdToken);
+    app.post('/social', AuthService.verifyIdToken, AuthService.social);
 
     app.post('/signup', AuthService.register);
 
