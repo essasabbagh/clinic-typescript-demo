@@ -1,0 +1,44 @@
+2022-12-18 17:25:21:2521 [31merror[39m: [31mThis is an error log[39m
+2022-12-18 17:25:21:2521 [33mwarn[39m: [33mThis is a warn log[39m
+2022-12-18 17:26:06:266 [31merror[39m: [31mThis is an error log[39m
+2022-12-18 17:26:06:266 [33mwarn[39m: [33mThis is a warn log[39m
+2022-12-18 17:27:58:2758 [31merror[39m: [31mThis is an error log[39m
+2022-12-18 17:27:58:2758 [33mwarn[39m: [33mThis is a warn log[39m
+2022-12-18 17:29:13:2913 [31merror[39m: [31mThis is an error log[39m
+2022-12-18 17:29:13:2913 [33mwarn[39m: [33mThis is a warn log[39m
+2022-12-18 17:31:31:3131 [37mdebug[39m: [37mServer is up and running @ http://localhost:5000[39m
+2022-12-18 17:31:48:3148 [31merror[39m: [31mThis is an error log[39m
+2022-12-18 17:31:48:3148 [33mwarn[39m: [33mThis is a warn log[39m
+2022-12-18 17:31:48:3148 [32minfo[39m: [32mThis is a info log[39m
+2022-12-18 17:31:48:3148 [35mhttp[39m: [35mThis is a http log[39m
+2022-12-18 17:31:48:3148 [37mdebug[39m: [37mThis is a debug log[39m
+2022-12-18 17:32:42:3242 [37mdebug[39m: [37mServer is up and running @ http://localhost:5000[39m
+2022-12-18 17:32:57:3257 [37mdebug[39m: [37mServer is up and running @ http://localhost:5000[39m
+2022-12-18 17:33:03:333 [31merror[39m: [31mPhone Number should be 10 Number[39m
+2022-12-18 17:33:37:3337 [37mdebug[39m: [37mServer is up and running @ http://localhost:5000[39m
+2022-12-18 17:34:08:348 [37mdebug[39m: [37mServer is up and running @ http://localhost:5000[39m
+2022-12-18 17:34:12:3412 [32minfo[39m: [32m/signup[39m
+2022-12-18 17:34:12:3412 [31merror[39m: [31mPhone Number should be 10 Number[39m
+2022-12-18 17:34:50:3450 [37mdebug[39m: [37mServer is up and running @ http://localhost:5000[39m
+2022-12-18 17:34:51:3451 [31merror[39m: [31m/signup[39m
+2022-12-18 17:35:16:3516 [37mdebug[39m: [37mServer is up and running @ http://localhost:5000[39m
+2022-12-18 17:35:20:3520 [31merror[39m: [31m/signupPhone Number should be 10 Number[39m
+2022-12-18 17:35:59:3559 [37mdebug[39m: [37mServer is up and running @ http://localhost:5000[39m
+2022-12-18 17:36:04:364 [31merror[39m: [31m/signup /n Phone Number should be 10 Number[39m
+2022-12-18 17:36:16:3616 [37mdebug[39m: [37mServer is up and running @ http://localhost:5000[39m
+2022-12-18 17:36:22:3622 [31merror[39m: [31m/signup Phone Number should be 10 Number[39m
+2022-12-18 17:38:16:3816 [37mdebug[39m: [37mServer is up and running @ http://localhost:5000[39m
+2022-12-18 17:57:47:5747 [37mdebug[39m: [37mServer is up and running @ http://localhost:5000[39m
+2022-12-18 17:57:53:5753 [37mdebug[39m: [37mServer is up and running @ http://localhost:5000[39m
+2022-12-18 17:58:05:585 [37mdebug[39m: [37mServer is up and running @ http://localhost:5000[39m
+2022-12-18 17:58:14:5814 [37mdebug[39m: [37mServer is up and running @ http://localhost:5000[39m
+2022-12-18 17:58:58:5858 [37mdebug[39m: [37mServer is up and running @ http://localhost:5000[39m
+2022-12-18 17:59:31:5931 [31merror[39m: [31m/signup Phone Number should be 10 Number[39m
+2022-12-18 17:59:31:5931 [35mhttp[39m: [35mPOST /signup 400 62 - 6.244 ms[39m
+[35m[39m
+2022-12-18 18:00:44:044 [35mhttp[39m: [35mPOST /login 200 424 - 622.894 ms[39m
+[35m[39m
+2022-12-18 18:01:31:131 [35mhttp[39m: [35mGET / 200 50 - 0.642 ms[39m
+[35m[39m
+2022-12-18 18:01:44:144 [35mhttp[39m: [35mGET /home 200 50 - 0.476 ms[39m
+[35m[39m

@@ -6,8 +6,11 @@ export class Home {
 
     app.get('/', (req: Request, res: Response, next: NextFunction) => {
       try {
-        // res.send('Hello World');
-        throw 'Hello World Error';
+        res.json({
+          success: true,
+          message: 'Hello Root router Api',
+        });
+        // throw 'Hello World Error';
       } catch (error) {
         next(error);
       }

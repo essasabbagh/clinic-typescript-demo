@@ -7,8 +7,10 @@ import { Auth } from './routes/auth';
 import { Appointments } from './routes/appointments';
 import { errorHandler } from './middlewares/handle-error';
 import { Routes } from './routes';
-import helmet from "helmet"; // Security
-import compression from "compression";
+import helmet from 'helmet'; // Security
+import compression from 'compression';
+import Logger from './middlewares/logs/logger';
+import morganMiddleware from './middlewares/logs/morganMiddleware';
 
 export class App {
   protected app: express.Application;
@@ -21,15 +23,25 @@ export class App {
 
     const PORT = process.env.PORT || 3000;
     this.config();
+    this.app.get('/logger', (_, res) => {
+      Logger.error('This is an error log');
+      Logger.warn('This is a warn log');
+      Logger.info('This is a info log');
+      Logger.http('This is a http log');
+      Logger.debug('This is a debug log');
+
+      res.send('Hello world');
+    });
+    this.app.use(morganMiddleware);
     new Routes(this.app);
 
     // Connect Database
     connectDb();
-
     this.app.use(errorHandler);
 
     this.app.listen(PORT, () => {
-      console.log('listening on port ' + PORT);
+      // console.log('listening on port ' + PORT);
+      Logger.debug(`Server is up and running @ http://localhost:${PORT}`);
     });
   }
 
