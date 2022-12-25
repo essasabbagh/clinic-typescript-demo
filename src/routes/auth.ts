@@ -3,7 +3,7 @@ import { Application } from 'express';
 
 import { errorHandler } from '../middlewares/handle-error';
 
-import AuthService from '../controllers/AuthService';
+import AuthService from '../controllers/authService';
 
 export class Auth {
   public routes(app: Application): void {

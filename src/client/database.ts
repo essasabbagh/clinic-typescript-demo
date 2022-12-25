@@ -7,7 +7,7 @@ const connect = async function connect() {
     // Connect the client
     await prisma.$connect();
 
-    // const allUsers = await prisma.patient.findMany({});
+    // const allUsers = await prisma.user.findMany({});
 
     // console.dir(allUsers, { depth: null });
     console.info('Database is Ready');

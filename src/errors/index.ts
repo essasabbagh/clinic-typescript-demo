@@ -15,7 +15,7 @@
 //   }[];
 // }
 
-export class AppError extends Error {
+export default class AppError extends Error {
   status: number = 400;
 
   constructor(status: number, message: string) {

@@ -2,7 +2,7 @@ import express = require('express');
 import { Home } from './home';
 import { Auth } from './auth';
 import { Appointments } from './appointments';
-import { AppError } from '../errors';
+import AppError from '../errors';
 
 export class Routes {
   public homeRoutes: Home = new Home();

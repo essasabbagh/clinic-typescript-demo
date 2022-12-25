@@ -11,77 +11,61 @@ generator client {
   provider = "prisma-client-js"
 }
 
-model Patient {
+model User {
   id           String        @id @default(auto()) @map("_id") @db.ObjectId
   email        String        @unique
   token        String        @unique
-  firstName    String?
+  createdAt    DateTime      @default(now())
+  firstName    String
   lastName     String?
-  phone        String?
   ip           String?
   deviceInfo   String?
   deviceId     String?
+  profile      Profile?
+  role         Role          @default(PATIENT)
   appointments Appointment[]
+}
+
+model Profile {
+  id     String    @id @default(auto()) @map("_id") @db.ObjectId
+  bio    String
+  phone  String?
+  avatar String?
+  dob    DateTime? // date of birth
+  user   User      @relation(fields: [userId], references: [id])
+  userId String    @unique @db.ObjectId
 }
 
 model Appointment {
   id          String    @id @default(auto()) @map("_id") @db.ObjectId
   slug        String    @unique
   title       String
-  category    String
   description String?
+  createdAt   DateTime  @default(now())
+  category    Category?
   sessions    Session[]
-  patient     Patient   @relation(fields: [patientId], references: [id])
+  patient     User      @relation(fields: [patientId], references: [id])
   patientId   String    @db.ObjectId
 }
 
-// Comments contain a comment string and connect back to the post.
-// postId must have @db.ObjectId to match up with Post's id type
-model Session {
+model Category {
   id            String      @id @default(auto()) @map("_id") @db.ObjectId
+  name          String
   appointment   Appointment @relation(fields: [appointmentId], references: [id])
-  appointmentId String      @db.ObjectId
-  description   String
-  date          DateTime
-  time          DateTime
+  appointmentId String      @unique @db.ObjectId
 }
 
-// model Post {
-//   id String @id @default(auto()) @map("_id") @db.ObjectId
+model Session {
+  id            String      @id @default(auto()) @map("_id") @db.ObjectId
+  description   String?
+  date          DateTime
+  appointment   Appointment @relation(fields: [appointmentId], references: [id])
+  appointmentId String      @db.ObjectId
+}
 
-//   slug String @unique
-
-//   title String
-
-//   body String
-
-//   comments Comment[]
-
-//   author User @relation(fields: [authorId], references: [id])
-
-//   authorId String @db.ObjectId
-// }
-
-// // Comments contain a comment string and connect back to the post.
-
-// // postId must have @db.ObjectId to match up with Post's id type
-
-// model Comment {
-//   id String @id @default(auto()) @map("_id") @db.ObjectId
-
-//   post Post @relation(fields: [postId], references: [id])
-
-//   postId String @db.ObjectId
-
-//   comment String
-// }
-
-// model User {
-//   id String @id @default(auto()) @map("_id") @db.ObjectId
-
-//   email String @unique
-
-//   name String?
-
-//   posts Post[]
-// }
+enum Role {
+  ADMIN
+  DOCTOR
+  NURSE
+  PATIENT
+}

@@ -1,9 +1,9 @@
 import { Request, Response, NextFunction } from 'express';
 import Logger from './logs/logger';
-import { AppError } from '../errors';
+import AppError from '../errors';
 
 export const errorHandler = (err: Error, req: Request, res: Response, next: NextFunction) => {
-  Logger.error(req.path + ' ' + err.message);
+  Logger.error(err.message);
   if (err instanceof AppError) {
     return res.status(err.status).send({
       success: false,

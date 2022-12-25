@@ -1,4 +1,4 @@
-import { AppError } from '.';
+import AppError from '.';
 
 export class NotFoundError extends AppError {
   constructor() {

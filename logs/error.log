@@ -10,3 +10,35 @@
 2022-12-18 17:36:04:364 [31merror[39m: [31m/signup /n Phone Number should be 10 Number[39m
 2022-12-18 17:36:22:3622 [31merror[39m: [31m/signup Phone Number should be 10 Number[39m
 2022-12-18 17:59:31:5931 [31merror[39m: [31m/signup Phone Number should be 10 Number[39m
+2022-12-18 18:02:07:27 [31merror[39m: [31m/validate Unauthorized! Access Token was expired![39m
+2022-12-25 13:19:22:1922 [31merror[39m: [31mPhone Number should be 10 Number[39m
+2022-12-25 13:19:28:1928 [31merror[39m: [31mFirebase ID token has no "kid" claim. See https://firebase.google.com/docs/auth/admin/verify-id-tokens for details on how to retrieve an ID token.[39m
+2022-12-25 13:19:35:1935 [31merror[39m: [31mUser Not Found !![39m
+2022-12-25 13:19:51:1951 [31merror[39m: [31mUser Not Found !![39m
+2022-12-25 13:19:59:1959 [31merror[39m: [31mUser Not Found !![39m
+2022-12-25 13:20:04:204 [31merror[39m: [31mAll input is required[39m
+2022-12-25 13:20:09:209 [31merror[39m: [31mAll input is required[39m
+2022-12-25 13:20:10:2010 [31merror[39m: [31mAll input is required[39m
+2022-12-25 13:20:15:2015 [31merror[39m: [31mUser Not Found !![39m
+2022-12-25 13:20:22:2022 [31merror[39m: [31mUser Not Found !![39m
+2022-12-25 13:20:27:2027 [31merror[39m: [31mUnauthorized! Access Token was expired![39m
+2022-12-25 13:20:32:2032 [31merror[39m: [31mUnauthorized! Access Token was expired![39m
+2022-12-25 13:41:50:4150 [31merror[39m: [31mUser Not Found !![39m
+2022-12-25 13:42:20:4220 [31merror[39m: [31mPhone Number should be 10 Number[39m
+2022-12-25 13:43:44:4344 [31merror[39m: [31mUnauthorized! Access Token was expired![39m
+2022-12-25 18:18:40:1840 [31merror[39m: [31mBad request!![39m
+2022-12-25 18:18:54:1854 [31merror[39m: [31mUser Not Found !![39m
+2022-12-25 18:19:00:190 [31merror[39m: [31mUser Already Exist. Please Login[39m
+2022-12-25 18:19:29:1929 [31merror[39m: [31mBad request!![39m
+2022-12-25 18:19:56:1956 [31merror[39m: [31mYou do not have the authorization to access this[39m
+2022-12-25 18:45:50:4550 [31merror[39m: [31mBad request!![39m
+2022-12-25 18:46:29:4629 [31merror[39m: [31mYou do not have the authorization to access this[39m
+2022-12-25 18:47:29:4729 [31merror[39m: [31mUnauthorized! Access Token was expired![39m
+2022-12-25 18:47:40:4740 [31merror[39m: [31mA token is required for authentication[39m
+2022-12-25 18:48:03:483 [31merror[39m: [31mA token is required for authentication[39m
+2022-12-25 18:48:22:4822 [31merror[39m: [31mA token is required for authentication[39m
+2022-12-25 18:48:34:4834 [31merror[39m: [31mA token is required for authentication[39m
+2022-12-25 18:49:01:491 [31merror[39m: [31mBad request!![39m
+2022-12-25 18:49:14:4914 [31merror[39m: [31mBad request!![39m
+2022-12-25 18:49:39:4939 [31merror[39m: [31mUser Already Exist. Please Login[39m
+2022-12-25 18:49:53:4953 [31merror[39m: [31mBad request!![39m
