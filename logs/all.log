@@ -270,3 +270,151 @@
 2022-12-25 18:57:43:5743 [37mdebug[39m: [37mServer is up and running @ http://localhost:5000[39m
 2022-12-25 18:58:10:5810 [37mdebug[39m: [37mServer is up and running @ http://localhost:5000[39m
 2022-12-25 18:58:50:5850 [37mdebug[39m: [37mServer is up and running @ http://localhost:5000[39m
+2022-12-28 22:12:11:1211 [37mdebug[39m: [37mServer is up and running @ http://localhost:5000[39m
+2022-12-28 22:12:27:1227 [31merror[39m: [31mUnauthorized! Access Token was expired![39m
+2022-12-28 22:12:27:1227 [35mhttp[39m: [35mGET /profile 403 69 - 10.357 ms[39m
+[35m[39m
+2022-12-28 22:12:32:1232 [31merror[39m: [31mA token is required for authentication[39m
+2022-12-28 22:12:32:1232 [35mhttp[39m: [35mGET /profile 403 68 - 2.725 ms[39m
+[35m[39m
+2022-12-28 22:12:37:1237 [31merror[39m: [31mUnauthorized! Access Token was expired![39m
+2022-12-28 22:12:37:1237 [35mhttp[39m: [35mGET /profile 403 69 - 2.752 ms[39m
+[35m[39m
+2022-12-28 22:12:42:1242 [35mhttp[39m: [35mPOST /login 200 514 - 829.357 ms[39m
+[35m[39m
+2022-12-28 22:12:52:1252 [35mhttp[39m: [35mGET /profile 200 62 - 77.249 ms[39m
+[35m[39m
+2022-12-28 22:15:33:1533 [37mdebug[39m: [37mServer is up and running @ http://localhost:5000[39m
+2022-12-28 22:15:57:1557 [37mdebug[39m: [37mServer is up and running @ http://localhost:5000[39m
+2022-12-28 22:16:18:1618 [37mdebug[39m: [37mServer is up and running @ http://localhost:5000[39m
+2022-12-28 22:16:22:1622 [37mdebug[39m: [37mServer is up and running @ http://localhost:5000[39m
+2022-12-28 22:16:28:1628 [31merror[39m: [31mUser Already Exist. Please Login[39m
+2022-12-28 22:16:28:1628 [35mhttp[39m: [35mPOST /signup 409 62 - 480.378 ms[39m
+[35m[39m
+2022-12-28 22:16:47:1647 [35mhttp[39m: [35mPOST /signup 201 - - 952.460 ms[39m
+[35m[39m
+2022-12-28 22:17:26:1726 [37mdebug[39m: [37mServer is up and running @ http://localhost:5000[39m
+2022-12-28 22:17:39:1739 [37mdebug[39m: [37mServer is up and running @ http://localhost:5000[39m
+2022-12-28 22:18:03:183 [37mdebug[39m: [37mServer is up and running @ http://localhost:5000[39m
+2022-12-28 22:18:09:189 [37mdebug[39m: [37mServer is up and running @ http://localhost:5000[39m
+2022-12-28 22:18:40:1840 [37mdebug[39m: [37mServer is up and running @ http://localhost:5000[39m
+2022-12-28 22:18:54:1854 [37mdebug[39m: [37mServer is up and running @ http://localhost:5000[39m
+2022-12-28 22:19:56:1956 [37mdebug[39m: [37mServer is up and running @ http://localhost:5000[39m
+2022-12-28 22:20:16:2016 [37mdebug[39m: [37mServer is up and running @ http://localhost:5000[39m
+2022-12-28 22:20:20:2020 [37mdebug[39m: [37mServer is up and running @ http://localhost:5000[39m
+2022-12-28 22:20:39:2039 [37mdebug[39m: [37mServer is up and running @ http://localhost:5000[39m
+2022-12-28 22:20:45:2045 [37mdebug[39m: [37mServer is up and running @ http://localhost:5000[39m
+2022-12-28 22:20:52:2052 [37mdebug[39m: [37mServer is up and running @ http://localhost:5000[39m
+2022-12-28 22:21:05:215 [37mdebug[39m: [37mServer is up and running @ http://localhost:5000[39m
+2022-12-28 22:21:22:2122 [37mdebug[39m: [37mServer is up and running @ http://localhost:5000[39m
+2022-12-28 22:21:34:2134 [35mhttp[39m: [35mPOST /login 200 514 - 573.709 ms[39m
+[35m[39m
+2022-12-28 22:21:40:2140 [31merror[39m: [31mInvalid Credentials[39m
+2022-12-28 22:21:40:2140 [35mhttp[39m: [35mPOST /login 400 49 - 174.882 ms[39m
+[35m[39m
+2022-12-28 22:21:46:2146 [31merror[39m: [31mAll input is required[39m
+2022-12-28 22:21:46:2146 [35mhttp[39m: [35mPOST /login 400 51 - 1.966 ms[39m
+[35m[39m
+2022-12-28 22:21:53:2153 [31merror[39m: [31mAll input is required[39m
+2022-12-28 22:21:53:2153 [35mhttp[39m: [35mPOST /login 400 51 - 1.654 ms[39m
+[35m[39m
+2022-12-28 22:21:59:2159 [31merror[39m: [31mUser Not Found !![39m
+2022-12-28 22:21:59:2159 [35mhttp[39m: [35mPOST /login 404 47 - 79.040 ms[39m
+[35m[39m
+2022-12-28 22:22:04:224 [35mhttp[39m: [35mPOST /login 200 514 - 184.066 ms[39m
+[35m[39m
+2022-12-28 22:22:32:2232 [37mdebug[39m: [37mServer is up and running @ http://localhost:5000[39m
+2022-12-28 22:23:38:2338 [37mdebug[39m: [37mServer is up and running @ http://localhost:5000[39m
+2022-12-28 22:23:45:2345 [37mdebug[39m: [37mServer is up and running @ http://localhost:5000[39m
+2022-12-28 22:23:56:2356 [37mdebug[39m: [37mServer is up and running @ http://localhost:5000[39m
+2022-12-28 22:24:18:2418 [37mdebug[39m: [37mServer is up and running @ http://localhost:5000[39m
+2022-12-28 22:24:26:2426 [37mdebug[39m: [37mServer is up and running @ http://localhost:5000[39m
+2022-12-28 22:24:32:2432 [37mdebug[39m: [37mServer is up and running @ http://localhost:5000[39m
+2022-12-28 22:25:55:2555 [37mdebug[39m: [37mServer is up and running @ http://localhost:5000[39m
+2022-12-28 22:26:06:266 [37mdebug[39m: [37mServer is up and running @ http://localhost:5000[39m
+2022-12-28 22:26:10:2610 [37mdebug[39m: [37mServer is up and running @ http://localhost:5000[39m
+2022-12-28 22:26:19:2619 [37mdebug[39m: [37mServer is up and running @ http://localhost:5000[39m
+2022-12-28 22:26:23:2623 [37mdebug[39m: [37mServer is up and running @ http://localhost:5000[39m
+2022-12-28 22:26:35:2635 [37mdebug[39m: [37mServer is up and running @ http://localhost:5000[39m
+2022-12-28 22:26:38:2638 [37mdebug[39m: [37mServer is up and running @ http://localhost:5000[39m
+2022-12-28 22:26:42:2642 [37mdebug[39m: [37mServer is up and running @ http://localhost:5000[39m
+2022-12-28 22:26:51:2651 [31merror[39m: [31mUnauthorized! Access Token was expired![39m
+2022-12-28 22:26:51:2651 [35mhttp[39m: [35mPOST /validate 403 69 - 9.572 ms[39m
+[35m[39m
+2022-12-28 22:26:59:2659 [31merror[39m: [31mUnauthorized! Access Token was expired![39m
+2022-12-28 22:26:59:2659 [35mhttp[39m: [35mPOST /validate 403 69 - 4.011 ms[39m
+[35m[39m
+2022-12-28 22:27:14:2714 [35mhttp[39m: [35mPOST /validate 200 43 - 1.561 ms[39m
+[35m[39m
+2022-12-28 22:28:06:286 [37mdebug[39m: [37mServer is up and running @ http://localhost:5000[39m
+2022-12-28 22:28:43:2843 [37mdebug[39m: [37mServer is up and running @ http://localhost:5000[39m
+2022-12-28 22:31:15:3115 [37mdebug[39m: [37mServer is up and running @ http://localhost:5000[39m
+2022-12-28 22:31:38:3138 [37mdebug[39m: [37mServer is up and running @ http://localhost:5000[39m
+2022-12-28 22:31:43:3143 [37mdebug[39m: [37mServer is up and running @ http://localhost:5000[39m
+2022-12-28 22:31:50:3150 [37mdebug[39m: [37mServer is up and running @ http://localhost:5000[39m
+2022-12-28 22:31:57:3157 [35mhttp[39m: [35mGET /profile 200 297 - 704.344 ms[39m
+[35m[39m
+2022-12-28 22:37:40:3740 [37mdebug[39m: [37mServer is up and running @ http://localhost:5000[39m
+2022-12-28 22:38:15:3815 [37mdebug[39m: [37mServer is up and running @ http://localhost:5000[39m
+2022-12-28 22:39:14:3914 [37mdebug[39m: [37mServer is up and running @ http://localhost:5000[39m
+2022-12-28 22:40:24:4024 [37mdebug[39m: [37mServer is up and running @ http://localhost:5000[39m
+2022-12-28 22:41:07:417 [37mdebug[39m: [37mServer is up and running @ http://localhost:5000[39m
+2022-12-28 22:41:18:4118 [37mdebug[39m: [37mServer is up and running @ http://localhost:5000[39m
+2022-12-28 22:42:34:4234 [35mhttp[39m: [35mGET /profile - - - - ms[39m
+[35m[39m
+2022-12-28 22:42:51:4251 [37mdebug[39m: [37mServer is up and running @ http://localhost:5000[39m
+2022-12-28 22:43:13:4313 [37mdebug[39m: [37mServer is up and running @ http://localhost:5000[39m
+2022-12-28 22:43:21:4321 [37mdebug[39m: [37mServer is up and running @ http://localhost:5000[39m
+2022-12-28 22:43:51:4351 [37mdebug[39m: [37mServer is up and running @ http://localhost:5000[39m
+2022-12-28 22:44:06:446 [37mdebug[39m: [37mServer is up and running @ http://localhost:5000[39m
+2022-12-28 22:44:15:4415 [37mdebug[39m: [37mServer is up and running @ http://localhost:5000[39m
+2022-12-28 22:44:20:4420 [31merror[39m: [31mUser Already Exist. Please Login[39m
+2022-12-28 22:44:20:4420 [35mhttp[39m: [35mPOST /signup 409 62 - 452.969 ms[39m
+[35m[39m
+2022-12-28 22:44:24:4424 [35mhttp[39m: [35mPOST /login 200 514 - 193.411 ms[39m
+[35m[39m
+2022-12-28 22:44:46:4446 [37mdebug[39m: [37mServer is up and running @ http://localhost:5000[39m
+2022-12-28 22:44:50:4450 [35mhttp[39m: [35mGET /profile 200 297 - 932.752 ms[39m
+[35m[39m
+2022-12-28 22:46:58:4658 [37mdebug[39m: [37mServer is up and running @ http://localhost:5000[39m
+2022-12-28 22:47:13:4713 [35mhttp[39m: [35mPOST /signup 201 - - 1197.929 ms[39m
+[35m[39m
+2022-12-28 22:47:39:4739 [35mhttp[39m: [35mGET /profile 200 478 - 149.451 ms[39m
+[35m[39m
+2022-12-28 22:48:03:483 [37mdebug[39m: [37mServer is up and running @ http://localhost:5000[39m
+2022-12-28 22:48:56:4856 [37mdebug[39m: [37mServer is up and running @ http://localhost:5000[39m
+2022-12-28 22:49:01:491 [37mdebug[39m: [37mServer is up and running @ http://localhost:5000[39m
+2022-12-28 22:49:14:4914 [37mdebug[39m: [37mServer is up and running @ http://localhost:5000[39m
+2022-12-28 22:50:06:506 [37mdebug[39m: [37mServer is up and running @ http://localhost:5000[39m
+2022-12-28 22:52:20:5220 [37mdebug[39m: [37mServer is up and running @ http://localhost:5000[39m
+2022-12-28 22:52:27:5227 [37mdebug[39m: [37mServer is up and running @ http://localhost:5000[39m
+2022-12-28 22:53:15:5315 [37mdebug[39m: [37mServer is up and running @ http://localhost:5000[39m
+2022-12-28 22:53:21:5321 [37mdebug[39m: [37mServer is up and running @ http://localhost:5000[39m
+2022-12-28 22:54:12:5412 [37mdebug[39m: [37mServer is up and running @ http://localhost:5000[39m
+2022-12-28 22:54:47:5447 [37mdebug[39m: [37mServer is up and running @ http://localhost:5000[39m
+2022-12-28 22:54:59:5459 [37mdebug[39m: [37mServer is up and running @ http://localhost:5000[39m
+2022-12-28 22:55:08:558 [37mdebug[39m: [37mServer is up and running @ http://localhost:5000[39m
+2022-12-28 22:55:23:5523 [37mdebug[39m: [37mServer is up and running @ http://localhost:5000[39m
+2022-12-28 22:55:44:5544 [37mdebug[39m: [37mServer is up and running @ http://localhost:5000[39m
+2022-12-28 22:56:49:5649 [37mdebug[39m: [37mServer is up and running @ http://localhost:5000[39m
+2022-12-28 22:56:52:5652 [37mdebug[39m: [37mServer is up and running @ http://localhost:5000[39m
+2022-12-28 22:57:25:5725 [37mdebug[39m: [37mServer is up and running @ http://localhost:5000[39m
+2022-12-28 22:57:44:5744 [37mdebug[39m: [37mServer is up and running @ http://localhost:5000[39m
+2022-12-28 22:57:45:5745 [31merror[39m: [31mFirebase ID token has no "kid" claim. See https://firebase.google.com/docs/auth/admin/verify-id-tokens for details on how to retrieve an ID token.[39m
+2022-12-28 22:57:45:5745 [35mhttp[39m: [35mPOST /social 400 206 - 5.818 ms[39m
+[35m[39m
+2022-12-28 22:57:56:5756 [31merror[39m: [31mFirebase ID token has no "kid" claim. See https://firebase.google.com/docs/auth/admin/verify-id-tokens for details on how to retrieve an ID token.[39m
+2022-12-28 22:57:56:5756 [35mhttp[39m: [35mPOST /social 400 206 - 2.584 ms[39m
+[35m[39m
+2022-12-28 22:58:02:582 [31merror[39m: [31mFirebase ID token has no "kid" claim. See https://firebase.google.com/docs/auth/admin/verify-id-tokens for details on how to retrieve an ID token.[39m
+2022-12-28 22:58:02:582 [35mhttp[39m: [35mPOST /social 400 206 - 2.095 ms[39m
+[35m[39m
+2022-12-28 22:58:15:5815 [31merror[39m: [31mToken is required[39m
+2022-12-28 22:58:15:5815 [35mhttp[39m: [35mPOST /social 401 47 - 2.336 ms[39m
+[35m[39m
+2022-12-28 22:58:20:5820 [31merror[39m: [31mFirebase ID token has no "kid" claim. See https://firebase.google.com/docs/auth/admin/verify-id-tokens for details on how to retrieve an ID token.[39m
+2022-12-28 22:58:20:5820 [35mhttp[39m: [35mPOST /social 400 206 - 2.063 ms[39m
+[35m[39m
+2022-12-28 22:58:41:5841 [37mdebug[39m: [37mServer is up and running @ http://localhost:5000[39m
+2022-12-28 22:58:48:5848 [37mdebug[39m: [37mServer is up and running @ http://localhost:5000[39m
+2022-12-28 22:59:14:5914 [37mdebug[39m: [37mServer is up and running @ http://localhost:5000[39m

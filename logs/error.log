@@ -42,3 +42,19 @@
 2022-12-25 18:49:14:4914 [31merror[39m: [31mBad request!![39m
 2022-12-25 18:49:39:4939 [31merror[39m: [31mUser Already Exist. Please Login[39m
 2022-12-25 18:49:53:4953 [31merror[39m: [31mBad request!![39m
+2022-12-28 22:12:27:1227 [31merror[39m: [31mUnauthorized! Access Token was expired![39m
+2022-12-28 22:12:32:1232 [31merror[39m: [31mA token is required for authentication[39m
+2022-12-28 22:12:37:1237 [31merror[39m: [31mUnauthorized! Access Token was expired![39m
+2022-12-28 22:16:28:1628 [31merror[39m: [31mUser Already Exist. Please Login[39m
+2022-12-28 22:21:40:2140 [31merror[39m: [31mInvalid Credentials[39m
+2022-12-28 22:21:46:2146 [31merror[39m: [31mAll input is required[39m
+2022-12-28 22:21:53:2153 [31merror[39m: [31mAll input is required[39m
+2022-12-28 22:21:59:2159 [31merror[39m: [31mUser Not Found !![39m
+2022-12-28 22:26:51:2651 [31merror[39m: [31mUnauthorized! Access Token was expired![39m
+2022-12-28 22:26:59:2659 [31merror[39m: [31mUnauthorized! Access Token was expired![39m
+2022-12-28 22:44:20:4420 [31merror[39m: [31mUser Already Exist. Please Login[39m
+2022-12-28 22:57:45:5745 [31merror[39m: [31mFirebase ID token has no "kid" claim. See https://firebase.google.com/docs/auth/admin/verify-id-tokens for details on how to retrieve an ID token.[39m
+2022-12-28 22:57:56:5756 [31merror[39m: [31mFirebase ID token has no "kid" claim. See https://firebase.google.com/docs/auth/admin/verify-id-tokens for details on how to retrieve an ID token.[39m
+2022-12-28 22:58:02:582 [31merror[39m: [31mFirebase ID token has no "kid" claim. See https://firebase.google.com/docs/auth/admin/verify-id-tokens for details on how to retrieve an ID token.[39m
+2022-12-28 22:58:15:5815 [31merror[39m: [31mToken is required[39m
+2022-12-28 22:58:20:5820 [31merror[39m: [31mFirebase ID token has no "kid" claim. See https://firebase.google.com/docs/auth/admin/verify-id-tokens for details on how to retrieve an ID token.[39m

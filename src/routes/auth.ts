@@ -3,7 +3,7 @@ import { Application } from 'express';
 
 import { errorHandler } from '../middlewares/handle-error';
 
-import AuthService from '../controllers/authService';
+import AuthController from '../controllers/authController';
 
 export class Auth {
   public routes(app: Application): void {
@@ -11,14 +11,14 @@ export class Auth {
 
     app.use(errorHandler);
 
-    app.post('/social', AuthService.verifyIdToken, AuthService.social);
+    app.post('/social', AuthController.verifyIdToken, AuthController.social);
 
-    app.post('/signup', AuthService.register);
+    app.post('/signup', AuthController.register);
 
-    app.post('/login', AuthService.login);
+    app.post('/login', AuthController.login);
 
-    app.post('/validate', AuthService.verifyToken, AuthService.validate);
+    app.post('/validate', AuthController.validate);
 
-    app.get('/profile', AuthService.verifyToken, AuthService.profile);
+    app.get('/profile', AuthController.verifyToken, AuthController.profile);
   }
 }
