@@ -8,7 +8,7 @@ import getPayload from '../utils/jwtPayload';
 import IJwtPayload from '../interfaces/jwtPayloadInterface';
 
 import AppError from '../errors';
-import firebaseAuth from '../firebase';
+import FirebaseAdmin from '../firebase';
 import role from '../middlewares/userRole';
 import { User } from '@prisma/client';
 import { DecodedIdToken } from 'firebase-admin/auth';
@@ -243,14 +243,14 @@ export default class AuthService {
   static async verifyIdToken(req: Request): Promise<DecodedIdToken> {
     const token = req?.headers?.authorization?.split(' ')[1];
     if (!token) throw new AppError(401, 'Token is required');
-    const decodeValue = await firebaseAuth.verifyIdToken(token);
+    const decodeValue = await FirebaseAdmin.auth.verifyIdToken(token);
     if (!decodeValue) throw new AppError(401, 'Token is not valid!');
 
     return decodeValue;
 
     /*  try {
       if (!token) throw new AppError(401, 'Token is required');
-      const decodeValue = await firebaseAuth.verifyIdToken(token);
+      const decodeValue = await FirebaseAdmin.verifyIdToken(token);
       if (decodeValue) {
         req.body.user = decodeValue;
         return next();

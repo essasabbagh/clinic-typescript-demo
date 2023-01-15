@@ -1,24 +1,21 @@
-// import { Router } from 'express';
 import { Application } from 'express';
-
-import { errorHandler } from '../middlewares/handle-error';
+// import { Request, Response, NextFunction, Application } from 'express';
 
 import AuthController from '../controllers/authController';
+import ErrorController from '../controllers/errorController';
 
-export class Auth {
+export default class AuthRoutes {
   public routes(app: Application): void {
-    //received the express instance from app.ts file
+    app
+      .post('/social', AuthController.verifyIdToken, AuthController.social)
+      .get('/social', ErrorController.notAllowedMethod)
 
-    app.use(errorHandler);
+      .post('/signup', AuthController.register)
 
-    app.post('/social', AuthController.verifyIdToken, AuthController.social);
+      .post('/login', AuthController.login)
 
-    app.post('/signup', AuthController.register);
+      .post('/validate', AuthController.validate)
 
-    app.post('/login', AuthController.login);
-
-    app.post('/validate', AuthController.validate);
-
-    app.get('/profile', AuthController.verifyToken, AuthController.profile);
+      .get('/profile', AuthController.verifyToken, AuthController.profile);
   }
 }
