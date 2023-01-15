@@ -2,6 +2,8 @@ node_modules
 dist
 coverage
 .env
-
+logs
 .json
 serviceAccountKey.json
+logs/all.log
+logs/error.log
