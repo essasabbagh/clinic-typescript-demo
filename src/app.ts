@@ -5,6 +5,7 @@ import connectDb from './client/database';
 import { errorHandler } from './middlewares/handle-error';
 import Routes from './routes';
 import helmet from 'helmet'; // Security
+import apicache from 'apicache';
 import compression from 'compression';
 import Logger from './middlewares/logs/logger';
 import morganMiddleware from './middlewares/logs/morganMiddleware';
@@ -40,6 +41,10 @@ export class App {
     this.app.use(helmet());
     // compresses all the responses
     this.app.use(compression());
+
+    let cache = apicache.middleware;
+
+    this.app.use(cache('5 minutes',));
 
     // get file from puplic folder
     this.app.use(express.static('static'));

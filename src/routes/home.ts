@@ -1,10 +1,10 @@
 import { Request, Response, NextFunction, Application } from 'express';
+import cacheSuccesses from '../middlewares/cache';
+import AxiosController from '../controllers/axiosController';
 import Logger from '../middlewares/logs/logger';
 
 export default class HomeRoutes {
   public routes(app: Application): void {
-    //received the express instance from app.ts file
-
     app
       .get('/', (req: Request, res: Response, next: NextFunction) => {
         try {
@@ -17,6 +17,8 @@ export default class HomeRoutes {
           next(error);
         }
       })
+
+      .get('/jsonplaceholder', cacheSuccesses, AxiosController.jsonplaceholder)
 
       .get('/home', (req: Request, res: Response) => {
         res.json({
