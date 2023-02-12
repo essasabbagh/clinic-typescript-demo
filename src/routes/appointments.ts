@@ -2,7 +2,7 @@ import { Request, Response, Application } from 'express';
 import { Role } from '@prisma/client';
 import can from '../middlewares/userRole';
 
-import appointments from '../db.json'; //load our local database file
+import appointments from '../db.json';
 import AppError from '../errors';
 
 export default class AppointmentsRoutes {

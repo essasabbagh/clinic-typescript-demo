@@ -9,7 +9,6 @@ const options: cors.CorsOptions = {
   preflightContinue: false,
 };
 
-
 const corsInit = cors<CorsRequest>(options);
 
 export default corsInit;

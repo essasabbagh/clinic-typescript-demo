@@ -42,9 +42,9 @@ export class App {
     // compresses all the responses
     this.app.use(compression());
 
-    let cache = apicache.middleware;
-
-    this.app.use(cache('5 minutes',));
+    /// cache All APIs
+    // let cache = apicache.middleware;
+    // this.app.use(cache('5 minutes',));
 
     // get file from puplic folder
     this.app.use(express.static('static'));
