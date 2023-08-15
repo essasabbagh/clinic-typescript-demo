@@ -5,8 +5,8 @@
   "main": "index.js",
   "scripts": {
     "start:dev": "ts-node -r tsconfig-paths/register ./src/index.ts",
-    "start": "nodemon src/index.ts",
-    "dev": "nodemon --watch 'src/**/*.ts' --exec ts-node src/index.ts",
+    "start-nodemon": "nodemon src/index.ts",
+    "dev-nodemon": "nodemon --watch 'src/**/*.ts' --exec ts-node src/index.ts",
     "start:prad": "node r ts-node/register/transpile only r tsconfig paths/register /dist/src/index. js",
     "prettier-watch": "onchange 'src/**/*.ts' -- prettier --write {{changed}}",
     "lint": "eslint . --ext .ts",
@@ -16,7 +16,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "@prisma/client": "^4.8.0",
+    "@prisma/client": "^5.1.1",
     "apicache": "^1.6.3",
     "axios": "^1.3.2",
     "bcryptjs": "^2.4.3",
